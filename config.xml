@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.developer.notepad" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Notepad</name>
+    <description>A cross-platform notepad application</description>
+    <author email="developer@example.com" href="https://example.com">
+        Developer
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    
+    <platform name="android">
+        <allow-intent href="market:*" />
+        <icon density="ldpi" src="dist/icon-192.png" />
+        <icon density="mdpi" src="dist/icon-192.png" />
+        <icon density="hdpi" src="dist/icon-192.png" />
+        <icon density="xhdpi" src="dist/icon-512.png" />
+        <icon density="xxhdpi" src="dist/icon-512.png" />
+        <icon density="xxxhdpi" src="dist/icon-512.png" />
+    </platform>
+    
+    <platform name="ios">
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+        <icon height="180" src="dist/icon-512.png" width="180" />
+        <icon height="60" src="dist/icon-192.png" width="60" />
+        <icon height="120" src="dist/icon-192.png" width="120" />
+    </platform>
+</widget>

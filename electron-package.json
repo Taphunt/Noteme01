@@ -1,0 +1,34 @@
+{
+  "name": "notepad-desktop",
+  "version": "1.0.0",
+  "description": "Desktop version of the Notepad App",
+  "main": "electron-main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "dist": "electron-builder --win --mac --linux"
+  },
+  "keywords": ["notepad", "desktop", "material-design"],
+  "author": "Developer",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^39.0.0",
+    "electron-builder": "^24.0.0"
+  },
+  "build": {
+    "appId": "com.developer.notepad",
+    "productName": "Notepad App",
+    "directories": {
+      "output": "release"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "mac": {
+      "category": "public.app-category.utilities"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  }
+}
