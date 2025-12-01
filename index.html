@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notepad</title>
+    <meta name="description" content="A cross-platform notepad application with Material Design 3">
+    <meta name="theme-color" content="#6750A4">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Main Screen -->
+        <div id="main-screen" class="screen">
+            <header class="app-bar">
+                <h1 class="app-title">Notepad</h1>
+                <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="search-input" class="search-field" placeholder="Search notes...">
+                </div>
+                <button id="theme-toggle" class="icon-button">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </header>
+
+            <div class="notes-container" id="notes-container">
+                <!-- Notes will be dynamically added here -->
+            </div>
+
+            <button id="add-note-btn" class="fab">
+                <i class="fas fa-plus"></i>
+            </button>
+
+            <nav class="bottom-nav">
+                <button class="nav-item active" id="all-notes-tab">
+                    <i class="fas fa-book"></i>
+                    <span>All Notes</span>
+                </button>
+                <button class="nav-item" id="favorites-tab">
+                    <i class="fas fa-heart"></i>
+                    <span>Favorites</span>
+                </button>
+            </nav>
+        </div>
+
+        <!-- Editor Screen -->
+        <div id="editor-screen" class="screen hidden">
+            <header class="app-bar">
+                <button id="back-btn" class="icon-button">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <input type="text" id="note-title" class="title-input" placeholder="Note Title">
+                <button id="save-btn" class="icon-button">
+                    <i class="fas fa-save"></i>
+                </button>
+                <button id="favorite-btn" class="icon-button">
+                    <i class="far fa-heart"></i>
+                </button>
+                <button id="delete-btn" class="icon-button">
+                    <i class="fas fa-trash"></i>
+                </button>
+                <button id="ai-summary-btn" class="icon-button">
+                    <i class="fas fa-magic"></i>
+                </button>
+                <button id="theme-toggle-editor" class="icon-button">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </header>
+
+
+
+            <textarea id="note-content" class="content-textarea" placeholder="Note content..."></textarea>
+            
+            <div id="ai-summary-container" class="ai-summary-container hidden">
+                <h3>AI Summary</h3>
+                <div id="ai-summary-content" class="ai-summary-content">
+                    <!-- AI summary will be displayed here -->
+                </div>
+                <div id="ai-summary-loading" class="ai-summary-loading hidden">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <span>Generating summary...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Register service worker for PWA
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js')
+                    .then(registration => {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch(registrationError => {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>
